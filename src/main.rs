@@ -113,8 +113,11 @@ fn check_digit(ean: &str) -> bool {
 }
 
 fn main() {
-    if let Err(err) = read_stdin() {
-        println!("error running example: {}", err);
+    match read_stdin() {
+        Ok((valid, invalid)) => {
+            println!("{valid}, {invalid}")
+        }
+        Err(_) => println!("0, 0"),
     }
 }
 
